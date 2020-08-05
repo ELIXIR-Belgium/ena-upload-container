@@ -1,0 +1,12 @@
+install_repository_dependencies: true
+install_resolver_dependencies: true
+install_tool_dependencies: true
+tools:
+
+- name: ena_upload
+  owner: ieguinoa
+  revisions:
+  - 19f34b5e27db
+  tool_panel_section_label: Upload to ENA
+  tool_shed_url: https://testtoolshed.g2.bx.psu.edu
+  
