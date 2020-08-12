@@ -76,7 +76,7 @@ echo "Installing extra tools"
 n=0
 until [ $n -ge 3 ]
 do
-    shed-tools install -t tools.yaml -g "http://localhost:$PORT" -a fakekey && break
+    shed-tools install -t /tools.yaml -g "http://localhost:$PORT" -a fakekey && break
     n=$[$n+1]
     sleep 5
     echo " - Retrying shed-tools install"
