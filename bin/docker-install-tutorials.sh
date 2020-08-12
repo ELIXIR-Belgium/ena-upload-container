@@ -79,7 +79,7 @@ do
     shed-tools install -t tools.yaml -g "http://localhost:$PORT" -a fakekey && break
     n=$[$n+1]
     sleep 5
-    echo " - Retrying shed-tools install "
+    echo " - Retrying shed-tools install"
 done        
 
 
@@ -96,7 +96,7 @@ fi
 if ! pgrep "supervisord" > /dev/null
 then
     # stop everything
-    sudo -E -u galaxy ./run.sh --stop --pidfile galaxy_install.pid
+    sudo -E -u galaxy /galaxy-central/run.sh --stop --pidfile /galaxy-central/galaxy_install.pid
     rm $install_log
     service postgresql stop
 fi

@@ -12,12 +12,9 @@ MAINTAINER ELIXIR Belgium
 
 ENV GALAXY_CONFIG_BRAND "ENA-upload"
 ENV ENABLE_TTS_INSTALL=True
-ENV WEBIN_ID="Webin-56059"
-ENV WEBIN_SECRET=".secret"
 
 ADD bin/docker-install-tutorials.sh /setup-workflow.sh
-ADD .secret .secret
-ADD tools.yaml tools.yaml 
+ADD /tools.yaml /tools.yaml 
 ADD /workflow /workflowDir
 
 RUN /setup-workflow.sh
