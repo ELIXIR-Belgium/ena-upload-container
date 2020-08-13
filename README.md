@@ -4,8 +4,7 @@
 
 # ENA upload container
 
-This is a repository to build a Galaxy container to clean raw reads and upload them to ENA. The ena uploading is based on the tool [ena-ipload-cli](https://github.com/usegalaxy-eu/ena-upload-cli)
-
+This is a repository to build a Galaxy container to clean raw reads and upload them to ENA. The ENA uploading is based on the tool [ena-ipload-cli](https://github.com/usegalaxy-eu/ena-upload-cli).
 
 ## Usage
 
