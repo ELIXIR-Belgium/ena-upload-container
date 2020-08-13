@@ -17,4 +17,5 @@ ADD bin/docker-install-tutorials.sh /setup-workflow.sh
 ADD /tools.yaml /tools.yaml 
 ADD /workflow /workflowDir
 
-RUN /setup-workflow.sh
+RUN chmod 755 /setup-workflow.sh && \
+/setup-workflow.sh
