@@ -41,3 +41,7 @@ On windows make sure that the directory of the .secret file is added as a resour
 - `-e WEBIN_SECRET="/.secret"` will set the env variable WEBIN_SECRET to the path of the .secret file
 - `--privileged` will allow the conatiner to load a reference genome through CVMFS when needed
 
+### Using the container
+
+When the container is running, open a webbrowser and go to [http://localhost:8080/](http://localhost:8080/) to open the Galaxy interface.
+
