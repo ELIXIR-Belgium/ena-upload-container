@@ -6,7 +6,7 @@ tools:
 - name: ena_upload
   owner: ieguinoa
   revisions:
-  - d417835ad23a
+  - 4bda52670a54
   tool_panel_section_label: Upload to ENA
   tool_shed_url: https://testtoolshed.g2.bx.psu.edu
   
