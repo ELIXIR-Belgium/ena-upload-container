@@ -8,7 +8,9 @@ This is a repository to build a Galaxy container to clean raw reads and upload t
 
 ## Usage
 
-### Building the container
+### Building the container image
+
+This step is only needed when you want to build the container yourself. There is also a pre made image available on Quay.io, explained further on this page.
 
 Build command:
 
@@ -17,9 +19,10 @@ docker build -t ena-upload -f Dockerfile .
 ```
 
 ### Prerequisites 
+
 #### ENA Webin
 
-A Webin can be made [here](https://www.ebi.ac.uk/ena/submit/sra/#home) if you don't have one already. The *--webin_id* parameter makes use of the full username looking like: `Webin-XXXXX`. Visit [Webin online](https://www.ebi.ac.uk/ena/submit/webin) to check on your submissions or [dev Webin](https://wwwdev.ebi.ac.uk/ena/submit/webin) to check on test submissions.
+In order to upload to ENA, it is required to have the credentials of an ENA Webin account. A Webin can be made [here](https://www.ebi.ac.uk/ena/submit/sra/#home) if you don't have one already. The *--webin_id* parameter makes use of the full username looking like: `Webin-XXXXX`. Visit [Webin online](https://www.ebi.ac.uk/ena/submit/webin) to check on your submissions or [dev Webin](https://wwwdev.ebi.ac.uk/ena/submit/webin) to check on test submissions.
 
 #### The .secret file
 
@@ -45,12 +48,12 @@ On windows make sure that the directory of the .secret file is added as a resour
 
 **The run command explained**:
 - `-p "8080:80"` will let the container host Galaxy on port 8080
-- `-v <absolute path>/.secret:/.secret` will mount the .secret file in the container
+- `-v <absolute path>/.secret:/.secret` will mount the .secret file in the container. Only absolute path need to be changed here.
 - `-e WEBIN_ID="Webin-*****"` will set the env variable WEBIN_ID
 - `-e WEBIN_SECRET="/.secret"` will set the env variable WEBIN_SECRET to the path of the .secret file
-- `--privileged` will allow the conatiner to load a reference genome through CVMFS when needed
+- `--privileged` will allow the container to load a reference genome through CVMFS when needed
 
 ### Using the container
 
-When the container is running, open a webbrowser and go to [http://localhost:8080/](http://localhost:8080/) to open the Galaxy interface.
+When the container is running, open a webbrowser and go to [http://localhost:8080/](http://localhost:8080/) to open the Galaxy interface. The ENA-upload tool van be found in the tool section `Upload to ENA`
 
