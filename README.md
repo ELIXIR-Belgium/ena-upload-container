@@ -16,6 +16,16 @@ Build command:
 docker build -t ena-upload -f Dockerfile .    
 ```
 
+### Prerequisites 
+#### ENA Webin
+
+A Webin can be made [here](https://www.ebi.ac.uk/ena/submit/sra/#home) if you don't have one already. The *--webin_id* parameter makes use of the full username looking like: `Webin-XXXXX`. Visit [Webin online](https://www.ebi.ac.uk/ena/submit/webin) to check on your submissions or [dev Webin](https://wwwdev.ebi.ac.uk/ena/submit/webin) to check on test submissions.
+
+#### The .secret file
+
+To avoid exposing you password through the terminals history, it is recommended to make use of a `.secret` file, containing your password on the first line. Make sure the file does not contain any whitespaces or newlines
+
+
 ### Running the container
 
 Run your builded container:
