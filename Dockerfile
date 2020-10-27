@@ -15,6 +15,7 @@ ENV ENABLE_TTS_INSTALL=True
 
 ADD bin/docker-install-tutorials.sh /setup-workflow.sh
 ADD /tools.yaml /tools.yaml 
+ADD /workflow /workflowDir
 ADD /bin/tool_conf.xml /galaxy-central/config/tool_conf.xml
 
 RUN chmod 755 /setup-workflow.sh && \

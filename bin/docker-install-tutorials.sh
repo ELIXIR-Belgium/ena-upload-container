@@ -52,25 +52,25 @@ if [[ ! -z $GALAXY_DEFAULT_ADMIN_USER ]]
         )
 fi
 
-# # install workflow
-# echo " - Extracting tools from workflows"
-# for w in `ls /workflowDir/*.ga | sort -r`
-# do
-#     echo "------ $w ------"
-#     workflow-to-tools -w $w -o /workflowDir/wftools.yaml -l "Read cleaning"
-#     echo " - Installing tools from workflow" 
-#     n=0
-#     until [ $n -ge 3 ]
-#     do
-#         shed-tools install -t /workflowDir/wftools.yaml -g "http://localhost:$PORT" -a fakekey && break
-#         n=$[$n+1]
-#         sleep 5
-#         echo " - Retrying shed-tools install"
-#     done    
-#     echo " - Installing workflow"
-#     workflow-install --publish_workflows --workflow_path $w -g "http://localhost:$PORT" -a fakekey
-#     echo "Installed workflow $w"
-# done
+# install workflow
+echo " - Extracting tools from workflows"
+for w in `ls /workflowDir/*.ga | sort -r`
+do
+    echo "------ $w ------"
+    workflow-to-tools -w $w -o /workflowDir/wftools.yaml -l "Workflow tools"
+    echo " - Installing tools from workflow" 
+    n=0
+    until [ $n -ge 3 ]
+    do
+        shed-tools install -t /workflowDir/wftools.yaml -g "http://localhost:$PORT" -a fakekey && break
+        n=$[$n+1]
+        sleep 5
+        echo " - Retrying shed-tools install"
+    done    
+    echo " - Installing workflow"
+    workflow-install --publish_workflows --workflow_path $w -g "http://localhost:$PORT" -a fakekey
+    echo "Installed workflow $w"
+done
 
 echo "Installing extra tools" 
 n=0
