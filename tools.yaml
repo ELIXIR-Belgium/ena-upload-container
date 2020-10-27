@@ -7,6 +7,13 @@ tools:
   owner: ieguinoa
   revisions:
   - 4bda52670a54
-  tool_panel_section_label: Upload to ENA
+  tool_panel_section_label: Submission tools
+  tool_shed_url: https://testtoolshed.g2.bx.psu.edu
+
+- name: reads_cleaning
+  owner: ieguinoa
+  revisions:
+  - efb0924293c3
+  tool_panel_section_label: Preprocessing tools
   tool_shed_url: https://testtoolshed.g2.bx.psu.edu
   
