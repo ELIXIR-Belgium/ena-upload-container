@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<toolbox monitor="true">
+    <section id="getext" name="Upload Data">
+        <tool file="data_source/upload.xml" />
+    </section>
+    <section id="preprocessing_tools" name="Preprocessing tools"></section>
+    <section id="submission_tools" name="Submission tools"></section>
+</toolbox>
