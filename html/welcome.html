@@ -1,0 +1,167 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/style/base.css" type="text/css">
+    <style type="text/css">
+        body {
+            font-size: 16px;
+        }
+
+        .padding-m {
+            padding: 20px 0px 20px 0px;
+
+        }
+
+        .mainbody {
+            padding: 20px 0px 35px;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body style="margin: 0;">
+
+    <div class="jumbotron">
+        <div class="container">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <h2>Hello, your <strong>ENA-upload Galaxy</strong> container is running!</h2><br>
+                            <p> This container is optimized to clean human reads from raw reads and to upload them to
+                                ENA,
+                                this in only a few steps. The ENA uploading is based on the tool ena-upload-cli while
+                                the
+                                reads_cleaning tool is based on Metagen-FastQC workflow.
+                            </p>
+                        </td>
+                        <td>
+                            <div align="center">
+                                <img src="./welcome_elixir_logo.png" style="margin:10px; height:100px;">
+                            </div>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="container mainbody">
+        <h2 id="1-data-upload">1. Data upload</h2>
+        <p>ENA will accept only raw read files via programmatic submissions (this tool). Genome or transcriptome
+            assemblies can be submitted to ENA using the other methods available (see above).
+            ENA will accept <em>fastq</em> (SE and PE), <em>bam</em> and <em>cram</em> formats.</p>
+
+        <p>Raw data is uploaded using Galaxy upload tool, found at the top of the <strong>Tools</strong> panel:</p>
+        <p>There are different options for uploading data:</p>
+        <ul>
+            <li>Load by “browsing” for a local file. Best for small datasets. Some servers will support load data that
+                is 2 GB or larger. If you are having problems with this method, try FTP.</li>
+            <li>Load using an HTTP URL or FTP URL.</li>
+            <li>Load a few lines of plain text.</li>
+            <li>Load using FTP. Either command line or with a desktop client.</li>
+        </ul>
+
+        <p>More information on data upload to Galaxy can be found in <a
+                href="https://galaxyproject.org/support/loading-data/">Galaxy support</a>.</p>
+
+        <p>Your data should appear on the right panel. You can rename, tag, preview edit or delete data objects from
+            here.
+            <!-- screenshot of data object -->
+        </p>
+
+        <h2 id="2-filter-human-reads">2. Filter human reads</h2>
+        <p>In order to comply with Europe’s General Data Protection Regulation <a
+                href="https://ec.europa.eu/info/law/law-topic/data-protection/eu-data-protection-rules_en">(GDPR)</a>,
+            traces of human genetic information must be removed from the raw data before submitting it to ENA. A tool is
+            included that filters out reads that map to the human genome using <a
+                href="https://github.com/Finn-Lab/Metagen-FastQC">Metagen-FastQC</a>.</p>
+
+        <p>Select the filtering tool from the <strong>Tools</strong> panel on the right.
+            <!-- screenshot of human reads filtering tool in tool panel -->
+            Select the files to filter.
+            <!-- screenshot of selection box in filtering tool -->
+            <!-- You must specify paired-end reads -->
+            Click on <em>Execute</em>
+            <!-- screenshot of selection box in filtering tool -->
+            The tool will now process the raw reads to remove reads that map to the human genome. The resulting filtered
+            data files are found on the right panel.</p>
+
+        <h2 id="3-metadata-upload">3. Metadata upload</h2>
+        <p>Submission to ENA requires accompanying metadata that complies with the <a
+                href="https://ena-docs.readthedocs.io/en/latest/submit/general-guide/metadata.html">ENA metadata
+                model</a>.
+            The tool offers two ways of entering metadata for submission: interactively or via a metadata template. All
+            metadata fields must be completed for the submission to go through.</p>
+
+        <h3 id="interactive-metadata-upload">Interactive metadata upload</h3>
+        <p>For a small number of submissions, metadata is best entered interactively by completing all the boxes.
+            Metadata fields are nested according to ENA metadata model:</p>
+        <ul>
+            <li>A <strong>study (project)</strong> groups together data submitted to the archive and controls its
+                release date. A study accession is typically used when citing data submitted to ENA.</li>
+            <li>A <strong>sample</strong> contains information about the sequenced source material. Samples are
+                associated with checklists, which define the fields used to annotate the samples. Samples are always
+                associated with a taxon.</li>
+            <li>An <strong>experiment</strong> contains information about a sequencing experiment including library and
+                instrument details.</li>
+            <li>A <strong>run</strong> is part of an experiment and refers to data files containing sequence reads.</li>
+        </ul>
+
+        <p>At the bottom, select the filtered data files associated with the metadata.</p>
+
+        <!-- here we can have screenshots of each metadata section -->
+
+        <h3 id="upload-with-metadata-template">Upload with metadata template</h3>
+        <p>For submission of a large number of files, a metadata template is available with the container. The template
+            is organized according to the ENA metadata model and contains one worksheet each for study, sample,
+            experiment and run metadata. The template can be downloaded, completed and uploaded using the Galaxy upload
+            tool.</p>
+
+        <p>Download the metadata template.
+            <!-- screenshot of the metadata download 'button' -->
+            Open the spreadsheet in your computer. <strong>All fields of the template must be complete</strong>. <a
+                href="https://drive.google.com/file/d/1Z3LszV6IkgmcESsz2K7Mdv8pcnolUHT5/view?usp=sharing">Here</a> you
+            can find an example of part of the metadata associated with a submission to ENA using this tool (accession
+            number PRJEB40711).</p>
+
+        <p>Upload the completed metadata template using Galaxy upload tool.</p>
+
+        <h2 id="4-validate-metadata">4. Validate Metadata</h2>
+
+        <h2 id="5-submit-study-to-ena">5. Submit study to ENA</h2>
+
+    </div>
+
+    <div class="footer">
+        <div class="container padding-m">
+            <p>
+                <a target="_blank" class="reference" href="http://galaxyproject.org/">
+                    Galaxy</a> is an open platform for supporting data intensive
+                research. Galaxy is developed by <a target="_blank" class="reference"
+                    href="http://wiki.galaxyproject.org/GalaxyTeam">The Galaxy Team</a>
+                with the support of <a target="_blank" class="reference"
+                    href="https://github.com/galaxyproject/galaxy/blob/dev/CONTRIBUTORS.md">many contributors</a>.
+                The Galaxy Docker project is supported by the University of Freiburg, part of de.NBI.
+            </p>
+
+            <p class="small">
+                The <a target="_blank" class="reference" href="http://galaxyproject.org/">Galaxy Project</a>
+                is supported in part by <a target="_blank" class="reference" href="http://www.genome.gov">NHGRI</a>,
+                <a target="_blank" class="reference" href="http://www.nsf.gov">NSF</a>,
+                <a target="_blank" class="reference" href="http://www.huck.psu.edu">The Huck Institutes of the Life
+                    Sciences</a>,
+                <a target="_blank" class="reference" href="http://www.ics.psu.edu">The Institute for CyberScience at
+                    Penn
+                    State</a>,
+                and <a target="_blank" class="reference" href="http://www.jhu.edu/">Johns Hopkins University</a>.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -17,6 +17,8 @@ ADD bin/docker-install-tutorials.sh /setup-workflow.sh
 ADD /tools.yaml /tools.yaml 
 ADD /workflow /workflowDir
 ADD /bin/tool_conf.xml /galaxy-central/config/tool_conf.xml
+ADD /html/welcome.html /etc/galaxy/web/welcome.html
+ADD /html/welcome_elixir_logo.png  /etc/galaxy/web/welcome_elixir_logo.png 
 
 RUN chmod 755 /setup-workflow.sh && \
-/setup-workflow.sh
+    /setup-workflow.sh
