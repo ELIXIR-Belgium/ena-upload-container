@@ -20,18 +20,45 @@
         .footer {
             background-color: #f8f9fa;
         }
+
+        figcaption {
+            padding-bottom: 12px;
+            padding-top: 6px;
+            max-width: 90%;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: gray;
+        }
+
+        .docimage {
+            margin: 20px 0px 20px 0px;
+        }
+
+        h2 {
+            font-size: 170%;
+            line-height: 30px;
+            font-weight: 700;
+            color: #de4d00;
+            margin: 40px 0 10px;
+        }
+
+        h3 {
+            font-weight: 700;
+            font-size: 120%;
+            margin-top: 20px;
+        }
     </style>
 </head>
 
 <body style="margin: 0;">
 
-    <div class="jumbotron">
+    <div class="jumbotron" style="margin-bottom: 0px;">
         <div class="container">
             <table>
                 <tbody>
                     <tr>
                         <td>
-                            <h2>Hello, your <strong>ENA-upload Galaxy</strong> container is running!</h2><br>
+                            <h1>Hello, your <strong>ENA-upload Galaxy</strong> container is running!</h1><br>
                             <p> This container is optimized to clean human reads from raw reads and to upload them to
                                 ENA,
                                 this in only a few steps. The ENA uploading is based on the tool ena-upload-cli while
@@ -41,7 +68,7 @@
                         </td>
                         <td>
                             <div align="center">
-                                <img src="./welcome_elixir_logo.png" style="margin:10px; height:100px;">
+                                <img src="./images/welcome_elixir_logo.png" style="margin:10px; height:100px;">
                             </div>
 
                         </td>
@@ -51,52 +78,84 @@
         </div>
     </div>
     <div class="container mainbody">
-        <h2 id="1-data-upload">1. Data upload</h2>
+        <h2 id="1-uploading-data-to-galaxy">1. Uploading data to Galaxy</h2>
         <p>ENA will accept only raw read files via programmatic submissions (this tool). Genome or transcriptome
-            assemblies can be submitted to ENA using the other methods available (see above).
-            ENA will accept <em>fastq</em> (SE and PE), <em>bam</em> and <em>cram</em> formats.</p>
+            assemblies can be submitted to ENA using the the ENA website.
+            ENA will accept <em>fastq.gz</em> (SE and PE), <em>bam</em> and <em>cram</em> formats.</p>
 
-        <p>Raw data is uploaded using Galaxy upload tool, found at the top of the <strong>Tools</strong> panel:</p>
-        <p>There are different options for uploading data:</p>
+        <p>Raw data can be uploaded using uploaded using <code>Upload File</code>, found at the top of the
+            <strong>Tools</strong> panel:</p>
+
+        <figure class="docimage">
+            <img src="./images/uploading_files_galaxy.png" alt="Uploading files In Galaxy" />
+            <figcaption>
+                Uploading data to Galaxy
+            </figcaption>
+        </figure>
+
+        <p>There are different recommended options for uploading the read data:</p>
         <ul>
             <li>Load by “browsing” for a local file. Best for small datasets. Some servers will support load data that
                 is 2 GB or larger. If you are having problems with this method, try FTP.</li>
             <li>Load using an HTTP URL or FTP URL.</li>
-            <li>Load a few lines of plain text.</li>
-            <li>Load using FTP. Either command line or with a desktop client.</li>
         </ul>
+
+        <p>When the local files are selected or a url is given, click “start” to start the uploading to Galaxy.</p>
 
         <p>More information on data upload to Galaxy can be found in <a
                 href="https://galaxyproject.org/support/loading-data/">Galaxy support</a>.</p>
 
-        <p>Your data should appear on the right panel. You can rename, tag, preview edit or delete data objects from
-            here.
-            <!-- screenshot of data object -->
-        </p>
+        <p>Your data should appear on the right panel in green. You can rename, tag, preview edit or delete data objects
+            from here.</p>
+        <figure class="docimage">
+            <img src="./images/history_galaxy.png" alt="history galaxy" />
+            <figcaption>
+                Files that are uploaded will show up in the history panel.
+            </figcaption>
+        </figure>
 
-        <h2 id="2-filter-human-reads">2. Filter human reads</h2>
+        <h2 id="2-filter-human-reads-out-of-the-raw-reads">2. Filter human reads out of the raw reads</h2>
         <p>In order to comply with Europe’s General Data Protection Regulation <a
                 href="https://ec.europa.eu/info/law/law-topic/data-protection/eu-data-protection-rules_en">(GDPR)</a>,
             traces of human genetic information must be removed from the raw data before submitting it to ENA. A tool is
             included that filters out reads that map to the human genome using <a
                 href="https://github.com/Finn-Lab/Metagen-FastQC">Metagen-FastQC</a>.</p>
 
-        <p>Select the filtering tool from the <strong>Tools</strong> panel on the right.
-            <!-- screenshot of human reads filtering tool in tool panel -->
-            Select the files to filter.
-            <!-- screenshot of selection box in filtering tool -->
-            <!-- You must specify paired-end reads -->
-            Click on <em>Execute</em>
-            <!-- screenshot of selection box in filtering tool -->
-            The tool will now process the raw reads to remove reads that map to the human genome. The resulting filtered
-            data files are found on the right panel.</p>
+        <p>Select the filtering tool from the <strong>Tools</strong> panel on the right.</p>
 
-        <h2 id="3-metadata-upload">3. Metadata upload</h2>
+        <ul>
+            <li>Select human h38 reference genome.</li>
+            <li>Choose single or paired end</li>
+            <li>Select the uploaded files</li>
+            <li>Click on <em>Execute</em></li>
+        </ul>
+
+        <figure class="docimage">
+            <img src="./images/read_cleaning_tool.png" alt="Read cleaning tool" />
+            <figcaption>
+                The interface of the read cleaning tool.
+            </figcaption>
+        </figure>
+
+        <p>The tool will now process the raw reads to remove reads that map to the human genome. This can take a while.
+            The resulting filtered data files are found on the right panel.</p>
+
+        <h2 id="3-uploading-the-data-accompanied-with-the-metadata">3. Uploading the data accompanied with the metadata
+        </h2>
         <p>Submission to ENA requires accompanying metadata that complies with the <a
                 href="https://ena-docs.readthedocs.io/en/latest/submit/general-guide/metadata.html">ENA metadata
                 model</a>.
             The tool offers two ways of entering metadata for submission: interactively or via a metadata template. All
-            metadata fields must be completed for the submission to go through.</p>
+            metadata fields must be completed for the submission to go through. Both ways allow you to make a test
+            submission to the server of ENA. This enables you to check if everything is showing up as expected and the
+            metadata is correct.</p>
+
+        <figure class="docimage">
+            <img src="./images/2_ways_ena_tool.png" alt="2ways of submitting metadata" />
+            <figcaption>
+                Two ways of submitting the metadata through the ENA-upload tool.
+            </figcaption>
+        </figure>
 
         <h3 id="interactive-metadata-upload">Interactive metadata upload</h3>
         <p>For a small number of submissions, metadata is best entered interactively by completing all the boxes.
@@ -114,26 +173,51 @@
 
         <p>At the bottom, select the filtered data files associated with the metadata.</p>
 
-        <!-- here we can have screenshots of each metadata section -->
+        <p>At last, fill in the Affiliation center and click on execute.</p>
 
-        <h3 id="upload-with-metadata-template">Upload with metadata template</h3>
-        <p>For submission of a large number of files, a metadata template is available with the container. The template
-            is organized according to the ENA metadata model and contains one worksheet each for study, sample,
-            experiment and run metadata. The template can be downloaded, completed and uploaded using the Galaxy upload
-            tool.</p>
+        <figure class="docimage">
+            <img src="./images/execute_ena_upoad.png" alt="Affiliation center and execute button" />
+            <figcaption>
+                Affiliation field and exicute button.
+            </figcaption>
+        </figure>
 
-        <p>Download the metadata template.
-            <!-- screenshot of the metadata download 'button' -->
-            Open the spreadsheet in your computer. <strong>All fields of the template must be complete</strong>. <a
+        <h3 id="upload-with-the-metadata-template">Upload with the metadata template</h3>
+        <p>For submission of a large number of files, it is recommended to use the spreadsheet template to upload the
+            metadata. The template can be found <a
+                href="https://docs.google.com/spreadsheets/d/14pHWToG7Hm5vLhToA6ex9K2oBFm0Wygao53ZsktzjPg/edit?usp=sharing">here</a>.
+            The template is organized according to the ENA metadata model and contains one worksheet each for study,
+            sample, experiment and run metadata. Use the alias column to interlink the experiments, studies, runs,
+            samples and files with each other. The template can be downloaded, completed and uploaded using the Galaxy
+            upload tool.</p>
+
+        <p>Open the spreadsheet in your computer. <strong>All fields of the template must be complete</strong>. <a
                 href="https://drive.google.com/file/d/1Z3LszV6IkgmcESsz2K7Mdv8pcnolUHT5/view?usp=sharing">Here</a> you
             can find an example of part of the metadata associated with a submission to ENA using this tool (accession
             number PRJEB40711).</p>
 
-        <p>Upload the completed metadata template using Galaxy upload tool.</p>
+        <p>Export the tables to tsv files and upload the completed metadata template using Galaxy upload tool. Select
+            the correct spreadsheets in the tool together with the correct data. If the data is uploaded correctly, they
+            should appear in the “Select all datasets to upload” section.</p>
 
-        <h2 id="4-validate-metadata">4. Validate Metadata</h2>
+        <p>At last, fill in the Affiliation center and click on execute.</p>
 
-        <h2 id="5-submit-study-to-ena">5. Submit study to ENA</h2>
+        <figure class="docimage">
+            <img src="./images/execute_ena_upoad.png" alt="Affiliation center and execute button" />
+            <figcaption>
+                Affiliation field and exicute button.
+            </figcaption>
+        </figure>
+
+        <h2 id="4-check-for-a-valid-submission">4. Check for a valid submission</h2>
+
+        <p>Visit <a href="https://www.ebi.ac.uk/ena/submit/webin">Webin online</a> to check on your submissions or <a
+                href="https://wwwdev.ebi.ac.uk/ena/submit/webin">dev Webin</a> to check on test submissions. If
+            everything looks fine, publish the data by changing the “Release Date” of the study to a day later than the
+            current day. It can take several days for ENA to index the data and to let it appear in a correct manner.
+            Covid-19 data will also be indexed by the <a href="https://www.covid19dataportal.org/">COVID-19 Data
+                Portal</a></p>
+
 
     </div>
 
