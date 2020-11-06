@@ -55,5 +55,6 @@ On windows make sure that the directory of the .secret file is added as a resour
 
 ### Using the container
 
-When the container is running, open a webbrowser and go to [http://localhost:8080/](http://localhost:8080/) to open the Galaxy interface. The ENA-upload tool van be found in the tool section `Upload to ENA`
+When the container is running, open a webbrowser and go to [http://localhost:8080/](http://localhost:8080/) to open the Galaxy interface. The ENA-upload tool van be found in the tool section `Upload to ENA`. Login as admin using `admin` as username and `password` as password to to have full access to the instance.
+
 
