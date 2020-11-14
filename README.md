@@ -6,9 +6,13 @@
 
 This is a repository to build a Galaxy container to clean raw reads and upload them to ENA. The ENA uploading is based on the tool [ena-upload-cli](https://github.com/usegalaxy-eu/ena-upload-cli) which is wrapped in following [Galaxy tool](https://testtoolshed.g2.bx.psu.edu/view/ieguinoa/ena_upload) .
 
+## Documentation
+
+Extensive documentation in how to use the tools inside theGalaxy container can be found [here](https://rdm.elixir-belgium.org/covid-19/sarscov2_submission.html).
+
 ## Usage
 
-### Building the container image
+### Building the container image (optional)
 
 This step is only needed when you want to build the container yourself. There is also a pre made image available on Quay.io, explained further on this page.
 
