@@ -49,7 +49,7 @@ docker run -p "8080:80" --privileged quay.io/galaxy/ena-upload
 
 ### Your own galaxy instance is running
 
-When the container is running (it can take some minutes to start all services), open a webbrowser and go to [http://localhost:8080/](http://localhost:8080/). Normally you should see here the Galaxy interface. If this pages is not found, wait a little longer. Some general information will be found in the middle panel of the galaxy instance. 
+When the container is running (it can take some minutes to start all services), open a webbrowser and go to [http://localhost:8080/](http://localhost:8080/). Normally you should see here the Galaxy interface. If this page is not found, wait a little longer. Some general information will be found in the middle panel of the galaxy instance. 
 
 ### Setting up the credentials for a brokering account
 
