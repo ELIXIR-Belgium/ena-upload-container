@@ -61,4 +61,4 @@ When the container is running (it can take some minutes to start all services), 
 
 ## Tool documentation
 
-Extensive documentation in how to use the tools inside theGalaxy container can be found [here](https://rdm.elixir-belgium.org/covid-19/sarscov2_submission.html).
+Extensive documentation in how to use the tools inside the Galaxy container can be found [here](https://rdm.elixir-belgium.org/covid-19/sarscov2_submission.html).
