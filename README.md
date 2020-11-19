@@ -4,11 +4,18 @@
 
 # ENA upload container
 
-This is a repository to build a Galaxy container to clean raw reads and upload them to ENA. The ENA uploading is based on the tool [ena-upload-cli](https://github.com/usegalaxy-eu/ena-upload-cli) which is wrapped in following [Galaxy tool](https://testtoolshed.g2.bx.psu.edu/view/ieguinoa/ena_upload) .
+This is a repository to build a Galaxy container to clean raw reads and upload them to ENA. The ENA uploading is based on the tool [ena-upload-cli](https://github.com/usegalaxy-eu/ena-upload-cli) which is wrapped in following [Galaxy tool](https://testtoolshed.g2.bx.psu.edu/view/ieguinoa/ena_upload).
 
-## Documentation
+## Prerequisites 
 
-Extensive documentation in how to use the tools inside theGalaxy container can be found [here](https://rdm.elixir-belgium.org/covid-19/sarscov2_submission.html).
+### Docker installed
+
+Make sure docker is installed and available on your path. For more information on how to install docker please visit [this website](https://docs.docker.com/get-docker/).
+
+### ENA Webin
+
+In order to upload to ENA, it is required to have the credentials of an ENA Webin account. A Webin can be made [here](https://www.ebi.ac.uk/ena/submit/sra/#home) if you don't have one already. The *WEBIN_ID* parameter makes use of the full username looking like: `Webin-XXXXX`. Visit [Webin online](https://www.ebi.ac.uk/ena/submit/webin) to check on your submissions or [dev Webin](https://wwwdev.ebi.ac.uk/ena/submit/webin) to check on test submissions.
+
 
 ## Usage
 
@@ -22,43 +29,36 @@ Build command:
 docker build -t ena-upload -f Dockerfile .    
 ```
 
-### Prerequisites 
-
-#### ENA Webin
-
-In order to upload to ENA, it is required to have the credentials of an ENA Webin account. A Webin can be made [here](https://www.ebi.ac.uk/ena/submit/sra/#home) if you don't have one already. The *WEBIN_ID* parameter makes use of the full username looking like: `Webin-XXXXX`. Visit [Webin online](https://www.ebi.ac.uk/ena/submit/webin) to check on your submissions or [dev Webin](https://wwwdev.ebi.ac.uk/ena/submit/webin) to check on test submissions.
-
-#### The .secret file
-
-To avoid exposing you password through the terminals history, it is recommended to make use of a `.secret` file, containing your password on the first line. Make sure the file does not contain any whitespaces or newlines
-
-
 ### Running the container
 
-Run your builded container:
+Run your builded container (optional):
 
 ```
-docker run -p "8080:80" -v <absolute path>/.secret:/.secret -e WEBIN_ID="Webin-*****" -e WEBIN_SECRET="/.secret" --privileged ena-upload
+docker run -p "8080:80" --privileged ena-upload
 ```
 
 Or run the container from Quay.io:
 
 ```
-docker run -p "8080:80" -v <absolute path>/.secret:/.secret -e WEBIN_ID="Webin-*****" -e WEBIN_SECRET="/.secret" --privileged quay.io/galaxy/ena-upload
+docker run -p "8080:80" --privileged quay.io/galaxy/ena-upload
 ```
-
-On windows make sure that the directory of the .secret file is added as a resource in the data sharing section of the settings of docker.
-
 
 **The run command explained**:
 - `-p "8080:80"` will let the container host Galaxy on port 8080
-- `-v <absolute path>/.secret:/.secret` will mount the .secret file in the container. Only absolute path need to be changed here.
-- `-e WEBIN_ID="Webin-*****"` will set the env variable WEBIN_ID
-- `-e WEBIN_SECRET="/.secret"` will set the env variable WEBIN_SECRET to the path of the .secret file
 - `--privileged` will allow the container to load a reference genome through CVMFS when needed
 
-### Using the container
+### Your own galaxy instance is running
 
-When the container is running, open a webbrowser and go to [http://localhost:8080/](http://localhost:8080/) to open the Galaxy interface. The ENA-upload tool van be found in the tool section `Upload to ENA`. Login as admin using `admin` as username and `password` as password to to have full access to the instance.
+When the container is running (it can take some minutes to start all services), open a webbrowser and go to [http://localhost:8080/](http://localhost:8080/). Normally you should see here the Galaxy interface. If this pages is not found, wait a little longer. Some general information will be found in the middle panel of the galaxy instance. 
 
+### Setting up the credentials for a brokering account
 
+1) Login as admin using `admin` as username and `password` as password, this will give you full access to the galaxy instance.
+2) Got to user > preferences in the top navigation
+3) Click on Manage information
+4) Fill in the `ENA Brokering account details`
+5) Click save
+
+## Tool documentation
+
+Extensive documentation in how to use the tools inside theGalaxy container can be found [here](https://rdm.elixir-belgium.org/covid-19/sarscov2_submission.html).
