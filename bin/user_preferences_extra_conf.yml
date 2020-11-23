@@ -1,9 +1,9 @@
 preferences:
-    ena_webin_account:
-        description: Your ENA Webin account details
+    ena_account:
+        description: Your ENA Brokering account details
         inputs:
             - name: webin_id
-              label: ENA Webin ID
+              label: webin_id
               type: text
               required: False
             - name: password
