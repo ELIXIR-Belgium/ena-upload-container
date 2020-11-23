@@ -8,7 +8,7 @@ This is a repository to build a Galaxy container to clean raw reads and upload t
 
 ## Prerequisites 
 
-### Docker installed
+### Docker
 
 Make sure docker is installed and available on your path. For more information on how to install docker please visit [this website](https://docs.docker.com/get-docker/).
 
