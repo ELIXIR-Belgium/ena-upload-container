@@ -52,7 +52,7 @@ if [[ ! -z $GALAXY_DEFAULT_ADMIN_USER ]]
         )
 fi
 
-install workflow
+# install workflow
 echo " - Extracting tools from workflows"
 for w in `ls /workflowDir/*.ga | sort -r`
 do
