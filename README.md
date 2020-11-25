@@ -37,7 +37,7 @@ Run the container from Quay.io:
 docker run -p "8080:80" --privileged quay.io/galaxy/ena-upload
 ```
 
-Or run your builded container (optional):
+Or run your built container (optional):
 
 ```
 docker run -p "8080:80" --privileged ena-upload
