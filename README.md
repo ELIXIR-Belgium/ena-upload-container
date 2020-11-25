@@ -54,7 +54,7 @@ When the container is running (it can take some minutes to start all services), 
 ### Setting up the credentials for a brokering account
 
 1) Login as admin using `admin` as username and `password` as password, this will give you full access to the galaxy instance.
-2) Got to user > preferences in the top navigation
+2) Go to user > preferences in the top navigation
 3) Click on Manage information
 4) Fill in the `ENA Brokering account details`
 5) Click save
