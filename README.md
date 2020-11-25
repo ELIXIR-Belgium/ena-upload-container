@@ -21,7 +21,7 @@ In order to upload to ENA, it is required to have the credentials of an ENA Webi
 
 ### Building the container image (optional)
 
-This step is only needed when you want to build the container yourself. There is also a pre made image available on Quay.io, explained further on this page.
+This step is only needed when you want to build the container yourself. There is also a pre made image available on Quay.io, explained in the next section.
 
 Build command:
 
@@ -31,16 +31,16 @@ docker build -t ena-upload -f Dockerfile .
 
 ### Running the container
 
-Run your builded container (optional):
-
-```
-docker run -p "8080:80" --privileged ena-upload
-```
-
-Or run the container from Quay.io:
+Run the container from Quay.io:
 
 ```
 docker run -p "8080:80" --privileged quay.io/galaxy/ena-upload
+```
+
+Or run your builded container (optional):
+
+```
+docker run -p "8080:80" --privileged ena-upload
 ```
 
 **The run command explained**:
@@ -49,7 +49,7 @@ docker run -p "8080:80" --privileged quay.io/galaxy/ena-upload
 
 ### Your own galaxy instance is running
 
-When the container is running (it can take some minutes to start all services), open a webbrowser and go to [http://localhost:8080/](http://localhost:8080/). Normally you should see here the Galaxy interface. If this page is not found, wait a little longer. Some general information will be found in the middle panel of the galaxy instance. 
+When the container is running (it can take some minutes to start all services), open a webbrowser and go to [http://localhost:8080/](http://localhost:8080/). Normally you should see here the Galaxy interface. If "this page is not found", wait a little longer. Some general information will be found in the middle panel of the galaxy instance. 
 
 ### Setting up the credentials for a brokering account
 
@@ -62,3 +62,7 @@ When the container is running (it can take some minutes to start all services), 
 ## Tool documentation
 
 Extensive documentation in how to use the tools inside the Galaxy container can be found [here](https://rdm.elixir-belgium.org/covid-19/sarscov2_submission.html).
+
+## Acknowledgements 
+
+Special thanks to ENA and the lab  of Björn Grüning for helping out with the tools used in this container
