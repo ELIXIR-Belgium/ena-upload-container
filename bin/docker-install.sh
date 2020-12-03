@@ -82,14 +82,14 @@ do
     echo " - Retrying shed-tools install"
 done        
 
-echo "Checking for data managers"
-if [ -f "/data/data-manager.yaml" ]
-then
-   echo " - Installing reference data"
-   run-data-managers --config "/data/data-manager.yaml" -g "http://localhost:$PORT" -a fakekey
-else
-   echo " - No reference data to install"
-fi
+# echo "Checking for data managers"
+# if [ -f "/data/data-manager.yaml" ]
+# then
+#    echo " - Installing reference data"
+#    run-data-managers --config "/data/data-manager.yaml" -g "http://localhost:$PORT" -a fakekey
+# else
+#    echo " - No reference data to install"
+# fi
 
 exit_code=$?
 
@@ -108,4 +108,3 @@ then
     rm $install_log
     service postgresql stop
 fi
-
