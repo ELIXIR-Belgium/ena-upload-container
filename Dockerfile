@@ -17,10 +17,10 @@ ADD bin/docker-install-tutorials.sh /setup-workflow.sh
 ADD /tools.yaml /tools.yaml 
 ADD /workflow /workflowDir
 ADD /bin/tool_conf.xml /galaxy-central/config/tool_conf.xml
-ADD /html/images  /etc/galaxy/web/images
-ADD /html/welcome.html /etc/galaxy/web/welcome.html
+ADD /html  /etc/galaxy/web
 ADD /bin/galaxy.yml /etc/galaxy/galaxy.yml
 ADD /bin/user_preferences_extra_conf.yml /etc/galaxy/user_preferences_extra_conf.yml
+ADD /bin/data-manager.yaml /data/data-manager.yaml
 
 
 RUN chmod 755 /setup-workflow.sh && \
