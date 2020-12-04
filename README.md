@@ -33,8 +33,14 @@ docker build -t ena-upload -f Dockerfile .
 
 Run the container from Quay.io:
 
+**Linux/windows:**
 ```
 docker run -p "8080:80" --privileged quay.io/galaxy/ena-upload
+```
+
+**MacOS:**
+```
+docker run -p "8080:80" quay.io/galaxy/ena-upload:hg38
 ```
 
 Or run your built container (optional):
