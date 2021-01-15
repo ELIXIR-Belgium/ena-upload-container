@@ -65,6 +65,11 @@ When the container is running (it can take some minutes to start all services), 
 4) Fill in the `ENA Brokering account details`
 5) Click save
 
+## Example data
+
+In the example directory an example Excel sheet can be found with example metadata along with example dat files.
+
+
 ## Tool documentation
 
 Extensive documentation in how to use the tools inside the Galaxy container can be found [here](https://rdm.elixir-belgium.org/covid-19/sarscov2_submission.html).
