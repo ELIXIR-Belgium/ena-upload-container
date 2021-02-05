@@ -67,7 +67,7 @@ When the container is running (it can take some minutes to start all services), 
 
 ## Example data
 
-In the example directory an example Excel sheet can be found with example metadata along with example dat files.
+In the example directory an example Excel sheet can be found with example metadata along with example data files.
 
 
 ## Tool documentation
