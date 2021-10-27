@@ -1,18 +1,36 @@
-name: Pushing to quay.io
+name: Push DockerHub CI
 on:
   release:
     types: [published]
+  workflow_dispatch:
 jobs:
-  build:
+  push_to_registry:
+    name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Build and push to Docker Hub
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{ secrets.docker_registry_username }}
-        password: ${{ secrets.docker_registry_password }}
-        registry: quay.io
-        repository: galaxy/ena-upload
-        tags: latest
-        dockerfile: Dockerfile
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: |
+            galaxy/ena-upload
+          tags: |
+            type=ref,event=tag
+      -
+        name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.docker_registry_username }}
+          password: ${{ secrets.docker_registry_password }}
+          registry: quay.io
+      -
+        name: Push to Docker Hub
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
