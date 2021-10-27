@@ -27,10 +27,12 @@ jobs:
           username: ${{ secrets.docker_registry_username }}
           password: ${{ secrets.docker_registry_password }}
           registry: quay.io
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
       - 
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
-
       -
         name: Push to Docker Hub
         uses: docker/build-push-action@v2
