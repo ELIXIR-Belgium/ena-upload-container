@@ -1,5 +1,6 @@
 name: Push DockerHub CI
 on:
+  create:
   release:
     types: [published]
   workflow_dispatch:
