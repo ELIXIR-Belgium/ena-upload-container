@@ -27,7 +27,7 @@ This step is only needed when you want to build the container yourself. There is
 Build command:
 
 ```
-docker build -t ena-upload -f Dockerfile .    
+docker build -t ena-upload -f Dockerfile .  
 ```
 
 ### Running the container
