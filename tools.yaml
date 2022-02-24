@@ -6,7 +6,7 @@ tools:
 - name: ena_upload
   owner: iuc
   revisions:
-  - 4aab5ae907b6
+  - 6f6537780379
   tool_panel_section_label: Submission tools
   tool_shed_url: https://toolshed.g2.bx.psu.edu/
 
