@@ -21,7 +21,7 @@ ADD /html/images  /etc/galaxy/web/images
 ADD /html/welcome.html /etc/galaxy/web/welcome.html
 ADD /bin/galaxy.yml /etc/galaxy/galaxy.yml
 ADD /bin/user_preferences_extra_conf.yml /etc/galaxy/user_preferences_extra_conf.yml
-
+RUN sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com
 RUN sudo apt-get update && \ 
 sudo apt-get install wget
 RUN wget --recursive --no-parent http://datacache.galaxyproject.org/indexes/hg38/hg38full/bwa_index_v0.7.10-r789/
