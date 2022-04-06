@@ -65,6 +65,7 @@
         figure img {
             max-width: 100%;
         }
+
     </style>
 </head>
 
@@ -99,7 +100,8 @@
         <h1 id="ena-submission-quick-start">ENA submission quick-start</h1>
         <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> For more detailed
             information on the container and the ENA submission process read the documentation found on ELIXIR Belgium’s
-            <a href="https://rdm.elixir-belgium.org/covid-19/sarscov2_submission.html">RDM Guide</a></div>
+            <a href="https://rdm.elixir-belgium.org/covid-19/sarscov2_submission.html">RDM Guide</a>
+        </div>
 
         <h2 id="1-log-in-to-galaxy-and-load-your-ena-credentials">1. Log in to Galaxy and load your ENA credentials:
         </h2>
@@ -107,23 +109,25 @@
         <ol>
             <li>Login to Galaxy using <code class="language-plaintext highlighter-rouge">admin</code> as username and
                 <code class="language-plaintext highlighter-rouge">password</code> as password. This will give you full
-                access to the galaxy instance.</li>
+                access to the galaxy instance.
+            </li>
             <li>Go to <strong>User</strong> &gt; <strong>Preferences</strong> in the top navigation</li>
             <li>Click on <i class="fa fa-user" aria-hidden="true"></i> <strong>Manage Information</strong></li>
             <li>Fill in the <code class="language-plaintext highlighter-rouge">Your ENA Webin account details</code> (If
-                you do not have one, get your ENA Webin account <a
-                    href="https://www.ebi.ac.uk/ena/submit/sra/#registration">here</a>)</li>
+                you do not have one, get your ENA Webin account <a href="https://www.ebi.ac.uk/ena/submit/sra/#registration">here</a>)</li>
             <li>Click <strong>Save</strong></li>
         </ol>
 
         <h2 id="2-upload-data">2. Upload Data</h2>
         <p>Upload your raw data using Galaxy’s <i class="fa fa-upload"></i> upload tool found at the top right of the
             <strong>Tools</strong> panel or using <strong>Upload File from your computer</strong> under <strong>Upload
-                Data</strong> tool group.</p>
+                Data</strong> tool group.
+        </p>
 
         <h2 id="3-filter-human-reads-out-of-the-raw-reads">3. Filter human reads out of the raw reads</h2>
         <p>Filter human traces from your raw data using <strong>Clean human reads from raw data</strong> from the
-            <strong>Preprocessing Tools</strong> on the left panel.</p>
+            <strong>Preprocessing Tools</strong> on the left panel.
+        </p>
 
         <ol>
             <li>Select human h38 reference genome</li>
@@ -140,8 +144,7 @@
 
         <p>The tool offers three ways of entering metadata for submission:</p>
         <ul>
-            <li>Complete the <a
-                    href="https://github.com/ELIXIR-Belgium/ENA-metadata-templates/blob/main/templates/ERC000033/example_metadata_template_ERC000033.xlsx">metadata
+            <li>Complete the <a href="https://github.com/ELIXIR-Belgium/ENA-metadata-templates/blob/main/templates/ERC000033/example_metadata_template_ERC000033.xlsx">metadata
                     spreadsheet template</a> and upload it as in step 2 or;</li>
             <li>Interactively generate the metadata structure or;</li>
             <li>Complete the 4 <a href="https://github.com/ELIXIR-Belgium/ENA-metadata-templates/blob/main/templates/ERC000033/">tsv
@@ -153,8 +156,7 @@
 
         <h2 id="5-check-for-a-valid-submission">5. Check for a valid submission</h2>
 
-        <p>Visit <a href="https://www.ebi.ac.uk/ena/submit/webin">Webin online</a> to check on your submissions or <a
-                href="https://wwwdev.ebi.ac.uk/ena/submit/webin">dev Webin</a> to check on test submissions. If
+        <p>Visit <a href="https://www.ebi.ac.uk/ena/submit/webin">Webin online</a> to check on your submissions or <a href="https://wwwdev.ebi.ac.uk/ena/submit/webin">dev Webin</a> to check on test submissions. If
             everything looks fine, publish the data by changing the “Release Date” of the study to a day later than the
             current day. It can take several days for ENA to index the data and to let it appear in a correct manner.
             Covid-19 data will also be indexed by the <a href="https://www.covid19dataportal.org/">COVID-19 Data
@@ -166,10 +168,8 @@
             <p>
                 <a target="_blank" class="reference" href="http://galaxyproject.org/">
                     Galaxy</a> is an open platform for supporting data intensive
-                research. Galaxy is developed by <a target="_blank" class="reference"
-                    href="http://wiki.galaxyproject.org/GalaxyTeam">The Galaxy Team</a>
-                with the support of <a target="_blank" class="reference"
-                    href="https://github.com/galaxyproject/galaxy/blob/dev/CONTRIBUTORS.md">many contributors</a>.
+                research. Galaxy is developed by <a target="_blank" class="reference" href="http://wiki.galaxyproject.org/GalaxyTeam">The Galaxy Team</a>
+                with the support of <a target="_blank" class="reference" href="https://github.com/galaxyproject/galaxy/blob/dev/CONTRIBUTORS.md">many contributors</a>.
                 The Galaxy Docker project is supported by the University of Freiburg, part of de.NBI.
             </p>
 

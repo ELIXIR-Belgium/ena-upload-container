@@ -8,7 +8,9 @@
 #    docker run -p "8080:80" -t  containername 
 
 FROM quay.io/bgruening/galaxy:20.05
-MAINTAINER ELIXIR Belgium
+LABEL maintainer='Bert Droesbeke'
+LABEL software="WES2Galaxy"
+LABEL maintainer.organisation='ELIXIR Belgium'
 
 ENV GALAXY_CONFIG_BRAND "ENA-upload"
 ENV ENABLE_TTS_INSTALL=True
