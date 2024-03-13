@@ -78,16 +78,14 @@
                     <tr>
                         <td>
                             <h1>Hello, your <strong>ENA-upload Galaxy</strong> container is running!</h1><br>
-                            <p> This container is optimized to clean human reads from raw reads and to upload them to
-                                ENA,
-                                this in only a few steps. The ENA uploading is based on the tool ena-upload-cli while
-                                the
-                                reads cleaning tool is based on Metagen-FastQC workflow.
+                            <p> This container is optimized to clean human reads from raw reads and to upload the metadata, raw reads and their consensus sequence to ENA,
+                                this in only a few steps. The ENA uploading is based on the <a href="https://github.com/usegalaxy-eu/ena-upload-cli">ena-upload-cli</a> and the <a href="https://github.com/enasequence/webin-cli">webin-cli</a> while
+                                the reads cleaning tool is based on <a href="https://github.com/Finn-Lab/Metagen-FastQC">Metagen-FastQC workflow</a>.
                             </p>
                         </td>
                         <td>
                             <div>
-                                <img src="./images/welcome_elixir_logo.png" style="margin:10px; height:100px;">
+                                <img alt="ELIXIR Logo" src="./images/welcome_elixir_logo.png" style="margin:10px; height:100px;">
                             </div>
 
                         </td>
@@ -99,7 +97,7 @@
     <div class="container mainbody">
         <h1 id="ena-submission-quick-start">ENA submission quick-start</h1>
         <div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> For more detailed
-            information on the container and the ENA submission process read the documentation found on ELIXIR Belgium’s
+            information on the container and the ENA submission process read the documentation found on ELIXIR Belgium's
             <a href="https://rdm.elixir-belgium.org/covid-19/sarscov2_submission.html">RDM Guide</a>
         </div>
 
@@ -119,12 +117,12 @@
         </ol>
 
         <h2 id="2-upload-data">2. Upload Data</h2>
-        <p>Upload your raw data using Galaxy’s <i class="fa fa-upload"></i> upload tool found at the top right of the
+        <p>Upload your raw data using Galaxy's <i class="fa fa-upload"></i> upload tool found at the top right of the
             <strong>Tools</strong> panel or using <strong>Upload File from your computer</strong> under <strong>Upload
                 Data</strong> tool group.
         </p>
 
-        <h2 id="3-filter-human-reads-out-of-the-raw-reads">3. Filter human reads out of the raw reads</h2>
+        <h2 id="3-filter-human-reads-out-of-the-raw-reads">3. Filter human reads out of the raw reads (optional)</h2>
         <p>Filter human traces from your raw data using <strong>Clean human reads from raw data</strong> from the
             <strong>Preprocessing Tools</strong> on the left panel.
         </p>
@@ -133,7 +131,7 @@
             <li>Select human h38 reference genome</li>
             <li>Choose single or paired-end</li>
             <li>Select the files to clean</li>
-            <li>Click on ‘Execute’</li>
+            <li>Click on 'Execute'</li>
         </ol>
 
         <h2 id="4-upload-metadata-and-submit-to-ena">4. Upload metadata and submit to ENA</h2>
@@ -144,15 +142,15 @@
 
         <p>The tool offers three ways of entering metadata for submission:</p>
         <ul>
-            <li>Complete the <a href="https://github.com/ELIXIR-Belgium/ENA-metadata-templates/blob/main/templates/ERC000033/example_metadata_template_ERC000033.xlsx">metadata
+            <li>Complete the <a href="https://github.com/ELIXIR-Belgium/ENA-metadata-templates/tree/main/templates">metadata
                     spreadsheet template</a> and upload it as in step 2 or;</li>
             <li>Interactively generate the metadata structure or;</li>
-            <li>Complete the 4 <a href="https://github.com/ELIXIR-Belgium/ENA-metadata-templates/blob/main/templates/ERC000033/">tsv
+            <li>Complete the 4 <a href="https://github.com/ELIXIR-Belgium/ENA-metadata-templates/tree/main/templates">tsv
                     templates</a> and upload as in step 2.</li>
         </ul>
 
         <p>After uploading or completing the metadata, select the corresponding (human traces removed) data files, fill
-            in your affiliation and click on ‘Execute’.</p>
+            in your affiliation and click on 'Execute'.</p>
 
         <h2 id="5-check-for-a-valid-submission">5. Check for a valid submission</h2>
 
@@ -166,23 +164,23 @@
     <div class="footer">
         <div class="container padding-m">
             <p>
-                <a target="_blank" class="reference" href="http://galaxyproject.org/">
+                <a target="_blank" rel="noopener" class="reference" href="http://galaxyproject.org/">
                     Galaxy</a> is an open platform for supporting data intensive
-                research. Galaxy is developed by <a target="_blank" class="reference" href="http://wiki.galaxyproject.org/GalaxyTeam">The Galaxy Team</a>
-                with the support of <a target="_blank" class="reference" href="https://github.com/galaxyproject/galaxy/blob/dev/CONTRIBUTORS.md">many contributors</a>.
+                research. Galaxy is developed by <a target="_blank" rel="noopener" class="reference" href="http://wiki.galaxyproject.org/GalaxyTeam">The Galaxy Team</a>
+                with the support of <a target="_blank" rel="noopener" class="reference" href="https://github.com/galaxyproject/galaxy/blob/dev/CONTRIBUTORS.md">many contributors</a>.
                 The Galaxy Docker project is supported by the University of Freiburg, part of de.NBI.
             </p>
 
             <p class="small">
-                The <a target="_blank" class="reference" href="http://galaxyproject.org/">Galaxy Project</a>
-                is supported in part by <a target="_blank" class="reference" href="http://www.genome.gov">NHGRI</a>,
-                <a target="_blank" class="reference" href="http://www.nsf.gov">NSF</a>,
-                <a target="_blank" class="reference" href="http://www.huck.psu.edu">The Huck Institutes of the Life
+                The <a target="_blank" rel="noopener" class="reference" href="http://galaxyproject.org/">Galaxy Project</a>
+                is supported in part by <a target="_blank" rel="noopener" class="reference" href="http://www.genome.gov">NHGRI</a>,
+                <a target="_blank" rel="noopener" class="reference" href="http://www.nsf.gov">NSF</a>,
+                <a target="_blank" rel="noopener" class="reference" href="http://www.huck.psu.edu">The Huck Institutes of the Life
                     Sciences</a>,
-                <a target="_blank" class="reference" href="http://www.ics.psu.edu">The Institute for CyberScience at
+                <a target="_blank" rel="noopener" class="reference" href="http://www.ics.psu.edu">The Institute for CyberScience at
                     Penn
                     State</a>,
-                and <a target="_blank" class="reference" href="http://www.jhu.edu/">Johns Hopkins University</a>.
+                and <a target="_blank" rel="noopener" class="reference" href="http://www.jhu.edu/">Johns Hopkins University</a>.
             </p>
         </div>
     </div>
