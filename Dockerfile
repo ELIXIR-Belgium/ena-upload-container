@@ -18,7 +18,7 @@ ENV ENABLE_TTS_INSTALL=True
 ADD bin/docker-install-tutorials.sh /setup-workflow.sh
 ADD /tools.yaml /tools.yaml 
 ADD /workflow /workflowDir
-ADD /bin/tool_conf.xml /etc/galaxy/config/tool_conf.xml
+ADD /bin/tool_conf.xml /galaxy-central/config/tool_conf.xml
 ADD /html/images  /etc/galaxy/web/images
 ADD /html/welcome.html /etc/galaxy/web/welcome.html
 ADD /bin/galaxy.yml /etc/galaxy/galaxy.yml
