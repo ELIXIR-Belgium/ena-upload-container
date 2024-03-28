@@ -12,6 +12,8 @@ LABEL maintainer='Bert Droesbeke'
 LABEL software="WES2Galaxy"
 LABEL maintainer.organisation='ELIXIR Belgium'
 
+WORKDIR /galaxy-central
+
 ENV GALAXY_CONFIG_BRAND "ENA-upload"
 ENV ENABLE_TTS_INSTALL=True
 
